@@ -31,8 +31,8 @@ cosine_sim = cosine_similarity(count_matrix, count_matrix)
 
 
 df = df.reset_index()
-titles = df['title']
-indices = pd.Series(df.index, index=df['title'])
+titles = df['primaryTitle']
+indices = pd.Series(df.index, index=df['primaryTitle'])
 
 def recommendation(title):
     idx = indices[title]
@@ -41,7 +41,7 @@ def recommendation(title):
     sim_scores = sim_scores[1:51]
     movie_indices = [i[0] for i in sim_scores]
     
-    movies = df.iloc[movie_indices][['title', 'numVotes', 'averageRating']]
+    movies = df.iloc[movie_indices][['primaryTitle', 'numVotes', 'averageRating']]
     vote_counts = movies[movies['numVotes'].notnull()]['numVotes'].astype('int')
     vote_averages = movies[movies['averageRating'].notnull()]['averageRating'].astype('int')
     C = vote_averages.mean()
