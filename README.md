@@ -1,16 +1,18 @@
 # Movie Rating Prediction    
 
-Nowadays, audiences can easily share their rating about a movie on the Internet. Movie rating
-presents an objective basis for general audiences and advertisers to choose high quality movies and is also
-an important factor to estimate final box office receipts. As a result, predicting the rating of a movie is
-valuable to audiences, cinema, advertisers and investors.
+Nowadays, With the connection of the world, the film resources available to people are getting richer, and audiences can easily share their ratings about a movie on the Internet. For ordinary viewers, the increase in options also means that the difficulty of choosing the right movie increases. In the increasingly busy modern society, the time cost of choosing the wrong movie becomes more expensive. For movie theaters, it is a challenge to arrange appropriate schedules for many movies to maximize revenue. For advertisers, whether they can choose the right film directly determines whether their investment can be rewarded. Therefore, accurately predicting the ratings of movies is of considerable significance to audiences, cinemas, and advertisers. Besides, for online video service providers, it is also one of the critical functions to recommend proper movies to customers' preferences. This is the motivation of our project.     
 
-In this project, we will predict the ratings of movies based on ratings that we found in Movielens
-and the information available in IMDb and Wikipedia. Our prediction will be done based on two factors:
-the specific types of movies such as drama, action, comedy, etc; the crew behind movies such as director,
-actor, producer, etc. First, we will perform data preprocessing and integration on the datasets we found.
-Then we will implement vector analysis using cosine similarity for the content based predicition. We will 
-also use the collaborative filtering to predict the movie rating.
+The first problem this project wants to solve is how to predict the unknown rating based on the existing movie rating data. This includes comprehensive ratings for movies provided to cinemas and advertisers, as well as targeted ratings for ordinary audiences. The second problem this project wants to solve is how to deal with the cold start problem. For newly released movies, there is no user data to make predictions. But the prediction of new movie ratings is essential for movie theaters and advertisers.
+Then it is about movie recommendation, especially for online video service providers, such as Netflix, it is important to accurately recommend favorite movies to viewers. Additionally, the movie rating data set used in this project comes from multiple databases, which have different content and format, and there are duplicates and invalid items. Thus, how to merge and clean up different datasets and select the required information from them is also a problem to be solved in this project.     
+
+The main methods used in this project are content-based prediction and collaborative filtering prediction. The content-based approach focuses on the properties of items (movies in this project). Similarity of movies is determined by measuring the similarity in their properties. This project uses two factors: the specific types of movies such as drama, action, and comedy; the crew behind movies such as director, actor, and producer, to construct each movie a profile. This project mainly uses this method to solve the cold start problem[not sure]. The collaborative filtering approach focuses on the relationship between users and items. Similarity of movies is determined by the similarity of the ratings of those movies by users who have rated both movies. This project uses four kinds of collaborative filtering: baseline only, user-user, item-item, and latent factors(SVD). This project uses collaborative filtering as the main prediction method.
+
+## Methodology
+- Content Based Prediction
+- Collarative Filtering Prediction
+
+## Conclusion
+This project helped us to understand the mechanism behind the moving rating prediction. By combining two methods of content based prediction and collaborative filtering, we compare the prediction accuracy and RMSE of these two methods. We found that content based prediction performed worse than its counterpart, which means it is not the ideal candidate for movie rating prediction. With respect to collaborative filtering, by testing on small and medium size samples, It is proved that if we blend all the models (such as SVD and Knn), with XGBoost, we can further reduce the rmse. We are confident that by adopting this strategy, the final rmse would be lower than 0.8814, though still far away from the threshold set by Nexflix.
 
 ## Team Members 
-Xiaoming liu, Kangjun Lou, Mandy Wong, Ping Chen
+Kangjun Lou, Mandy Wong, Ping Chen, Xiaoming liu
